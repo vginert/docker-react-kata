@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t vginert/docker-react-kata-dev -f Dockerfile.dev .
+
+script:
+  - docker run vginert/docker-react-kata-dev npm run test -- --coverage
